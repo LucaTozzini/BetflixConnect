@@ -1,1 +1,25 @@
-Hello World!
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Looking for server</title>
+    </head>
+    <body>
+        Searching...
+    </body>
+    <script>
+        const isServer = (address) => {
+            const response = fetch(`${address}/ciao`).then(async data => {
+                const text = await data.text();
+                if(text == 'yellow') window.location.href = `${address}:3000`;
+            });
+        };
+        isServer();
+
+        const loop = async () => {
+            for(let i = 0; i <= 255; i++){
+                isServer(`http://192.168.1.${i}`);
+                await new Promise(res => setTimeout(res, 150));
+            }
+        }
+    </script>
+</html>

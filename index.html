@@ -13,8 +13,6 @@
                 if(text == 'yellow') window.location.href = `${address}:3000`;
             }).catch(err => {});
         };
-        isServer();
-
         const loop = async () => {
             for(let i = 0; i <= 255; i++){
                 console.log(i);
@@ -22,5 +20,6 @@
                 await new Promise(res => setTimeout(res, 150));
             }
         }
+        loop();
     </script>
 </html>

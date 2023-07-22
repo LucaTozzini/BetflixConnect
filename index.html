@@ -11,7 +11,7 @@
             const response = fetch(`${address}/ciao`).then(async data => {
                 const text = await data.text();
                 if(text == 'yellow') window.location.href = `${address}:3000`;
-            });
+            }).catch(err => {});
         };
         isServer();
 
